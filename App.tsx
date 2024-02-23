@@ -1,13 +1,15 @@
 import React from 'react';
-import {Button, SafeAreaView, Text, View} from 'react-native';
 import Router from './src/routers/Router';
 import {AuthProvider} from './src/context/Auth';
+import {ThemeProvider} from './src/theme/Theme';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

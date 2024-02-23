@@ -3,7 +3,7 @@ import React from 'react';
 import {useAuth} from '../context/Auth';
 import {MyButton} from '../components/MyButton';
 
-export function Settingcreen() {
+export default function SettingScreen() {
   const {signOut} = useAuth();
 
   return (
