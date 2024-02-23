@@ -1,22 +1,23 @@
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
-import { MyButton } from '../components/MyButton';
+import {MyButton} from '../components/MyButton';
 
 export default function HomeScreen() {
-   const navigation = useNavigation();
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        Essa tela só pode ser vista por usuários autenticados
-      </Text>
-      <MyButton
-        title="Ir para Configurações"
-        onPress={() => navigation.navigate('setting')}
-      />
-      <Text>
-        by <Text style={styles.coffText}>Coffstack</Text>
-      </Text>
+      <Text style={styles.title}>Home Screen</Text>
+      <View style={styles.row}>
+        <MyButton title="Register" />
+        <MyButton
+          title="Config"
+          onPress={() => navigation.navigate('setting')}
+        />
+      </View>
+
+      <ScrollView></ScrollView>
+
     </View>
   );
 }
@@ -38,5 +39,11 @@ const styles = StyleSheet.create({
   coffText: {
     color: '#550AB1',
     fontWeight: 'bold',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
+    width: '100%',
   },
 });
