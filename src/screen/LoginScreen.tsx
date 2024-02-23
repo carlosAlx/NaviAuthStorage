@@ -1,17 +1,19 @@
 import React, {useContext, useState} from 'react';
 import {Image, Switch} from 'react-native';
 
-import {Container} from './styles';
+import {Container, Row} from './styles';
 import {useAuth} from '../context/Auth';
 import {MyTextInput} from '../components/MyInputText';
 import {MyButton} from '../components/MyButton';
 import {ThemeType, ThemeContext} from '../theme/Theme';
+import {useNavigation} from '@react-navigation/native';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {signIn} = useAuth();
   const {toggleTheme, theme} = useContext(ThemeContext);
+  const navigation = useNavigation();
 
   const darkModeIsEnabled = theme === ThemeType.dark;
   return (
@@ -20,13 +22,19 @@ export default function LoginScreen() {
       <Image resizeMode="contain" style={{width: 100, height: 100}} />
       <MyTextInput placeholder="e-mail" value={email} onChangeText={setEmail} />
       <MyTextInput
-        placeholder="senha"
+        placeholder="password"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
       />
 
-      <MyButton onPress={() => signIn(email, password)} title="Entrar no App" />
+      <Row>
+        <MyButton onPress={() => signIn(email, password)} title="Sign-in" />
+        <MyButton
+          title="Register"
+          onPress={() => navigation.navigate('register')}
+        />
+      </Row>
     </Container>
   );
 }

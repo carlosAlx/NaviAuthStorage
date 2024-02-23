@@ -12,7 +12,7 @@ export default function SettingScreen() {
       <MyButton
         style={{backgroundColor: 'red'}}
         onPress={signOut}
-        title="Sair do App"
+        title="Exit"
       />
     </View>
   );

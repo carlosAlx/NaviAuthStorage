@@ -9,14 +9,11 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text style={styles.title}>Home Screen</Text>
       <View style={styles.row}>
-        <MyButton title="Register" />
         <MyButton
           title="Config"
           onPress={() => navigation.navigate('setting')}
         />
       </View>
-
-      <ScrollView></ScrollView>
 
     </View>
   );
