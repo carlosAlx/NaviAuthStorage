@@ -1,23 +1,16 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {View, Text} from 'react-native';
 import AppStack from './AppStack';
+import AuthStack from './AuthStack';
 
 const Stack = createNativeStackNavigator();
 
-function Homecreen() {
-  return (
-    <View>
-      <Text>RApz</Text>
-    </View>
-  );
-}
-
 export default function Router() {
+  const auth = true;
   return (
     <NavigationContainer>
-      <AppStack />
+      {auth ? <AppStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }

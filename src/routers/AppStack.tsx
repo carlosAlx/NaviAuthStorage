@@ -1,15 +1,15 @@
-import {View, Text} from 'react-native';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screen/HomeScreen';
+import Settingcreen from '../screen/Settingcreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="test" component={HomeScreen}/>
+      <Stack.Screen name="home" component={HomeScreen} />
+      <Stack.Screen name="setting" component={Settingcreen} />
     </Stack.Navigator>
   );
 }
