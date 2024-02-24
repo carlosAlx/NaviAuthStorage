@@ -19,7 +19,6 @@ export default function LoginScreen() {
   return (
     <Container>
       <Switch value={darkModeIsEnabled} onValueChange={toggleTheme} />
-      <Image resizeMode="contain" style={{width: 100, height: 100}} />
       <MyTextInput placeholder="e-mail" value={email} onChangeText={setEmail} />
       <MyTextInput
         placeholder="password"
